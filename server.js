@@ -1,0 +1,10 @@
+require('dotenv').config()
+const express = require('express')
+const config = require('./config/mongoDBConfig')
+const app = express()
+app.use(express.json())
+config()
+const courseRouter = require('./routes/courseRouter')
+app.use('/',courseRouter)
+
+app.listen(process.env.PORT, console.log('Listening...'))
